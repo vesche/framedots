@@ -19,7 +19,7 @@ export GTK_USE_PORTAL=1
 # start x
 {
 sleep 1; \
-xrandr --output eDP-1 --mode 1920x1080; \
+xrandr --output eDP-1 --mode 2256x1504; \
 nitrogen --set-centered /home/user/pics/orangebird.jpg; \
 /home/user/.config/polybar/launch
 } &

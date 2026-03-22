@@ -11,4 +11,6 @@ bspc config pointer_modifier    mod1
 bspc config pointer_action1     move
 bspc config pointer_action2     resize_corner
 
-bspc monitor DP1 -d I II III IV V VI VII VIII IX
+# Use EXTERNAL_MONITOR from hdmi script, fallback to DP-1
+MONITOR="${EXTERNAL_MONITOR:-DP-1}"
+bspc monitor "$MONITOR" -d I II III IV V VI VII VIII IX

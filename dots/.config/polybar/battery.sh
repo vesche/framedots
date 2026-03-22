@@ -40,12 +40,7 @@ fi
 # Font Awesome battery icons (use font-1)
 if [ "$ac" -eq 1 ]; then
     icon=$(printf '\uf0e7')  # bolt (charging)
-
-    if [ "$battery_percent" -gt 97 ]; then
-        echo "%{T1}$icon%{T-}"
-    else
-        printf "%%{T1}%s%%{T-} %02d%%\n" "$icon" "$battery_percent"
-    fi
+    printf "%%{T1}%s%%{T-} %02d%%\n" "$icon" "$battery_percent"
 else
     if [ "$battery_percent" -gt 85 ]; then
         icon=$(printf '\uf240')

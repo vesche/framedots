@@ -1,9 +1,32 @@
 #!/usr/bin/env bash
 
-xrandr --output DP1 --mode 1920x1080 --right-of eDP1
+set -e
+
+echo 1 > /tmp/.ext_mon
+
+# Find the connected DP output (external monitor) - exclude eDP (laptop screen)
+# Handles DP-1, DP-2, DP-1-1, etc.
+DP_OUTPUT=$(xrandr --query | grep -E '^DP-[0-9]+(-[0-9]+)?' | grep ' connected ' | awk '{print $1}' | head -1)
+
+if [[ -z "$DP_OUTPUT" ]]; then
+    echo "Error: No connected DP monitor found. Is your HDMI cable plugged in?" >&2
+    exit 1
+fi
+
+echo "Using display: $DP_OUTPUT"
+
+pkill sxhkd || true
+pkill polybar || true
+
+xrandr --output "$DP_OUTPUT" --mode 5120x1440
+xrandr --output eDP-1 --off
+
 nitrogen --set-tiled /home/user/pics/tile2.png
-pkill sxhkd
+
+# Export for bspwmrc_hdmi to use
+export EXTERNAL_MONITOR="$DP_OUTPUT"
+
 sxhkd &
-/home/user/.config/bspwm/bspwmrc_hdmi &
 /home/user/.config/polybar/launch
+/home/user/.config/bspwm/bspwmrc_hdmi &
 disown
