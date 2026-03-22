@@ -56,6 +56,5 @@ fi
 
 # Restart polybar
 echo "Restarting polybar..."
-pkill polybar > /dev/null 2>&1
 /home/user/.config/polybar/launch > /dev/null 2>&1
 echo "All done!"
