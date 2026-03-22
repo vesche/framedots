@@ -1,6 +1,6 @@
-# t480 Install Guide
+# Install Guide - Framework Laptop
 
-No frills Lenovo ThinkPad T480 Arch Linux grab and go.
+No frills Arch Linux on Framework Laptop grab and go.
 
 * Disable secure boot, reboot.
 * On boot hit `Enter` -> `F12` and boot from USB.
@@ -202,7 +202,7 @@ sudo systemctl enable --now throttled.service
 
 dots:
 ```
-git clone https://github.com/vesche/t480 && cd t480/
+git clone https://github.com/vesche/framedots && cd framedots/
 cp -r dots/.* ~/
 cp -r dots/pics ~/
 sudo cp dots/bin/* /usr/local/bin/

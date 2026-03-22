@@ -1,10 +1,10 @@
-# t480 Random Notes
+# Random Notes - Framework Laptop
 
 This and that...
 
 ## Bluetooth
 
-I use Shokz OpenRun Pro 2 Headphones with my T480, they are amazing.
+I use Shokz OpenRun Pro 2 Headphones with my Framework Laptop, they are amazing.
 
 * pacman -S bluez bluez-utils pulseaudio-bluetooth
 * pulseaudio -k
