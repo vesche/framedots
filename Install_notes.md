@@ -194,12 +194,6 @@ vim /etc/resolv.conf # change to 127.0.0.1
 systemctl enable cloudflared --now
 ```
 
-CPU throttle:
-```
-sudo pacman -S throttled
-sudo systemctl enable --now throttled.service
-```
-
 dots:
 ```
 git clone https://github.com/vesche/framedots && cd framedots/
