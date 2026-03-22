@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo 0 > /tmp/.ext_mon
-
 pkill sxhkd
 pkill polybar
 
@@ -12,8 +10,8 @@ xrandr --output DP-3 --off
 xrandr --output DP-4 --off
 
 nitrogen --set-centered /home/user/pics/orangebird.jpg
-/home/user/.config/polybar/launch
 
 sxhkd &
+/home/user/.config/polybar/launch
 /home/user/.config/bspwm/bspwmrc &
 disown

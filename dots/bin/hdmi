@@ -2,8 +2,6 @@
 
 set -e
 
-echo 1 > /tmp/.ext_mon
-
 # Find the connected DP output (external monitor) - exclude eDP (laptop screen)
 # Handles DP-1, DP-2, DP-1-1, etc.
 DP_OUTPUT=$(xrandr --query | grep -E '^DP-[0-9]+(-[0-9]+)?' | grep ' connected ' | awk '{print $1}' | head -1)
