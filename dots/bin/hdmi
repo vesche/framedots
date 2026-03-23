@@ -25,6 +25,6 @@ nitrogen --set-tiled /home/user/pics/tile2.png
 export EXTERNAL_MONITOR="$DP_OUTPUT"
 
 sxhkd &
-/home/user/.config/polybar/launch
 /home/user/.config/bspwm/bspwmrc_hdmi &
+/home/user/.config/polybar/launch
 disown

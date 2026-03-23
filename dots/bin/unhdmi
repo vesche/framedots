@@ -12,6 +12,6 @@ xrandr --output DP-4 --off
 nitrogen --set-centered /home/user/pics/orangebird.jpg
 
 sxhkd &
-/home/user/.config/polybar/launch
 /home/user/.config/bspwm/bspwmrc &
+/home/user/.config/polybar/launch
 disown
