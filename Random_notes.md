@@ -19,14 +19,6 @@ I use Shokz OpenRun Pro 2 Headphones with my Framework Laptop, they are amazing.
     * `exit`
 * Follow instructions [here](https://wiki.archlinux.org/index.php/Bluetooth_headset#Setting_up_auto_connection) to setup auto connect if you want.
 
-I'm not a huge fan of bluetooth auto connect because I'm paranoid, manual bash script:
-```
-#!/bin/bash
-
-bluetoothctl connect "<mac_addr>"
-polybar -r
-```
-
 ## LibreWolf / Firefox
 
 Fix monospace font:

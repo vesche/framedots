@@ -1,9 +1,9 @@
 # Install Guide - Framework Laptop
 
-No frills Arch Linux on Framework Laptop grab and go.
+No frills Arch Linux grab and go.
 
 * Disable secure boot, reboot.
-* On boot hit `Enter` -> `F12` and boot from USB.
+* On boot, hit boot select key and boot from USB.
 
 GPT:
 ```
@@ -127,10 +127,10 @@ source /etc/profile.d/locale.sh
 Packages:
 ```
 pacman -S \
-    `# archive   ` p7zip zip unzip unrar \
+    `# archive   ` 7zip zip unzip \
     `# audio     ` pulseaudio pulseaudio-alsa pavucontrol alsa-plugins alsa-utils \
     `# bluetooth ` bluez bluez-utils pulseaudio-bluetooth \
-    `# code      ` vim git python python-pip go rust \
+    `# code      ` vim git python twine go rust zig npm nodejs cursor-bin \
     `# desktop   ` nitrogen i3lock xdg-desktop-portal xdg-desktop-portal-gtk \
     `# fonts     ` adobe-source-code-pro-fonts noto-fonts \
     `# gui       ` firefox vlc obs-studio transmission-qt pcmanfm mupdf geeqie \
@@ -138,9 +138,18 @@ pacman -S \
     `# net       ` net-tools wget tcpdump tcpreplay traceroute nmap wireshark-qt remmina cloudflared \
     `# re        ` ghidra binwalk \
     `# terminal  ` alacritty fish tmux ranger w3m ueberzugpp \
-    `# util      ` htop tree scrot acpi cloc whois speedtest-cli ntp strace streamlink croc man-db \
+    `# util      ` htop tree scrot acpi cloc whois speedtest-cli ntp strace streamlink croc man-db yt-dlp \
     `# workflow  ` bspwm sxhkd dmenu dunst acpid \
     `# x         ` xorg-server xorg-xinit xorg-xrandr xf86-input-libinput xf86-video-intel
+```
+
+Python packages:
+```
+pacman -S \
+    python-pip python-pipx python-build python-setuptools \
+    python-cryptography python-pycryptodome python-ping3 python-psutil \
+    python-requests python-flask python-beautifulsoup4 \
+    python-numpy python-pillow
 ```
 
 yay install:
@@ -155,19 +164,16 @@ pacman -U yay-*-x86_64.pkg.tar.zst
 AUR:
 ```
 yay -S \
-    `# bar      ` polybar \
-    `# fonts    ` ttf-sourcecodepro-nerd ttf-font-awesome-4 \
-    `# gui      ` aseprite discord google-chrome visual-studio-code-bin \  
-    `# misc     ` cava s-tui charles ida-free python-playsound
+    `# bar   ` polybar \
+    `# fonts ` ttf-sourcecodepro-nerd ttf-font-awesome-4 \
+    `# gui   ` aseprite visual-studio-code-bin \  
+    `# misc  ` cava s-tui charles ida-free python-playsound
 ```
 
 Other tools:
 ```
-# python libraries
-pip install --user \
-    requests Flask websockets websocket-client beautifulsoup4 \
-    twine click crayons bpython numpy Pillow sanic psutil histstat \
-    scanless youtube-dl ootbat2
+# ootbat2
+pipx install ootbat2
 
 # edb
 sudo git clone --recursive https://github.com/eteran/edb-debugger.git /opt/edb-debugger
@@ -176,6 +182,9 @@ sudo mkdir build
 cd build
 sudo cmake ..
 sudo make
+
+# ranger icons
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 ```
 
 Configure fish:
@@ -203,13 +212,7 @@ sudo cp dots/bin/* /usr/local/bin/
 sudo cp dots/.dialogrc /root/
 ```
 
-ranger icons:
-```
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
-```
-
-Other:
+Other stuff:
 ```
 # stop xdg-desktop-portal-gtk because we start this in the xinitrc
 systemctl --user mask xdg-desktop-portal-gtk
