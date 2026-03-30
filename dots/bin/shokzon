@@ -1,17 +1,12 @@
 #!/bin/bash
 
-# Check if running as root
-if [ "$EUID" -ne 0 ]; then
-  echo "This script must be run as root."
-  exit 1
-fi
-
 # Check if Bluetooth service is active
 if systemctl is-active --quiet bluetooth; then
   echo "Bluetooth service is already running."
 else
   echo "Bluetooth service is not running. Starting it now..."
-  systemctl start bluetooth
+  sudo systemctl start bluetooth
+  sleep 1
 
   # Verify it started successfully
   if systemctl is-active --quiet bluetooth; then
